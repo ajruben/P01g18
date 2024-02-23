@@ -1,36 +1,43 @@
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #main menu and controlling choice flow 
-def main(flag=[]):
-    name = input("Welcome to our game! Can you please give your name?")
+#TODO req3: When the player has completed all worlds successfully, the main program congratulates them and ends the game. (use flags)
+
+
+def main(name, flag=[]): #req2
     choice = input(f"Hi {name}!\nPlease select a world! You can choose out of 1 2 3 4")
-    choice_flow(choice) #from here world handling is done, always ends at end_of_world()
+    #from here world handling is done, always ends at end_of_world()
+    w = choice_flow(choice) 
+    end_of_world(w)
 
 def choice_flow(choice):
     #ifelse statements
     if choice == '1':
         run_world_1()
+        return 1
     elif choice == '2':
         run_world_2()
+        return 2
     elif choice == '3':
         run_world_3()
+        return 3
     elif choice == '4':
         run_world_4()
+        return 4
     else:
         print("ERROR: Please enter either 1, 2, 3, or 4")
         main()
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
-#world one
+#world one, req 5: d can be completed by the player, if necessary by starting the world again and trying another route. There is no ultimate “game over” state.
             
 def run_world_1(): #ruben
     #variables
-    w=1
     #body
     w1_r1() #first room
 
     
     #finish
-    end_of_world(w)
+    
 
 #global variable for world1
 gravity_active = False
@@ -115,7 +122,7 @@ def run_world_2(): #bram dhalloSSS
     #body
     choice = input("Welkom in wereld 2, wat wil je doen?")
     #finish
-    end_of_world(w)
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #world three
@@ -126,7 +133,7 @@ def run_world_3(): #jade
     #body
     choice = input("Welkom in wereld 3, wat wil je doen?")
     #finish
-    end_of_world(w)
+
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #world four
@@ -137,19 +144,19 @@ def run_world_4(): #michelle
     #body
     choice = input("Welkom in wereld 4, wat wil je doen?")
     #finish
-    end_of_world(w)
+
 
 def end_of_world(choice):
     play_again_choice = input(f"You did great in world {choice}, want to play again in another world? (yes or no)")
     if play_again_choice == "yes":
-        main()
+        main(name)
     elif play_again_choice == "no":
         print("Thanks for playing!")
-        return None
     else:
         print("Error: Please enter yes or no. not capitalized.")
         end_of_world(choice)
 
 if __name__ == "__main__":
-    main()
+    name = input("Welcome to our game! Can you please give your name?") #req 1
+    main(name)
 
