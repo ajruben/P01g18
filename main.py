@@ -24,9 +24,19 @@ def run_world_1(): #ruben
     Welcome in the world of physics, where the physics is theoretical but the fun is real!
     You are a quantum particle, travelling at a speed close to the speed of light.
     One of the things you notice is that you age less quickly...
-    
+    But first: Where would you like to start? We have two positions available.
+    Position A: Here.
+    Position B: There.
+    Please give your answer as "Here" or "There".
     """
-    choice = input(first_text)
+    first_choice = input(first_text)
+    no_consequence_first_choice=f"""
+    {first_choice} was an excellent choice, however, I regret to inform you, you happen to be a quantum particle travelling at high speeds.
+    So you're kind of both here and there...
+    """
+    print(no_consequence_first_choice)
+
+    
     #finish
     end_of_world(w)
 
