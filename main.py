@@ -20,7 +20,13 @@ def run_world_1(): #ruben
     #variables
     w=1
     #body
-    choice = input("Welkom in wereld 1, wat wil je doen?")
+    first_text = """
+    Welcome in the world of physics, where the physics is theoretical but the fun is real!
+    You are a quantum particle, travelling at a speed close to the speed of light.
+    One of the things you notice is that you age less quickly...
+    
+    """
+    choice = input(first_text)
     #finish
     end_of_world(w)
 
