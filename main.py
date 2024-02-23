@@ -1,3 +1,5 @@
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#main menu and controlling choice flow
 def main(flag=[]):
     choice = input("Hi user!\nPlease select a world! You can choose out of 1 2 3 4")
     choice_flow(choice) #from here world handling is done, always ends at end_of_world()
@@ -15,30 +17,55 @@ def choice_flow(choice):
     else:
         print("ERROR: Please enter either 1, 2, 3, or 4")
         main()
-    
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#world one
+            
 def run_world_1(): #ruben
     #variables
     w=1
     #body
-    first_text = """
-    Welcome in the world of physics, where the physics is theoretical but the fun is real!
-    You are a quantum particle, travelling at a speed close to the speed of light.
-    One of the things you notice is that you age less quickly...
-    But first: Where would you like to start? We have two positions available.
-    Position A: Here.
-    Position B: There.
-    Please give your answer as "Here" or "There".
-    """
-    first_choice = input(first_text)
-    no_consequence_first_choice=f"""
-    {first_choice} was an excellent choice, however, I regret to inform you, you happen to be a quantum particle travelling at high speeds.
-    So you're kind of both here and there...
-    """
-    print(no_consequence_first_choice)
+    w1_r1() #first room
 
     
     #finish
     end_of_world(w)
+
+#global variable for world1
+gravity_active = False
+
+#helper functions world 1
+def toggle_gravity():
+        global gravity_active
+        gravity_active = not gravity_active
+
+def show_gravity_activity():
+    if gravity_active:
+        print("Gravity activated. Normal gravity in effect.")
+    else:
+        print("Gravity deactivated. Zero gravity in effect.")
+
+#rooms world 1
+def w1_r1(): #world one room one
+    welcome_text_room1 = """
+    Welcome in the world of physics, where the physics is theoretical but the fun is real!
+    You are in a world where you can control gravity, initially there is no gravity. You start in a room with a bunch of stuff floating around.
+    There is a locked door, the key is floating on the other side of the room.
+    Would you like to open the door with brute force, or try and get the key?
+    option A: brute force
+    option B: try get key
+    """
+    keyforce_choice = input(welcome_text_room1)
+
+def w1r1_get_key():
+    pass
+
+def w1r1_brute():
+    pass
+
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#world two
+            
 
 def run_world_2(): #bram dhalloSSS
     #variables
@@ -48,6 +75,9 @@ def run_world_2(): #bram dhalloSSS
     #finish
     end_of_world(w)
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#world three
+
 def run_world_3(): #jade
     #variables
     w=3
@@ -56,6 +86,9 @@ def run_world_3(): #jade
     #finish
     end_of_world(w)
 
+#----------------------------------------------------------------------------------------------------------------------------------------------------
+#world four
+    
 def run_world_4(): #michelle
     #variables
     w=4
