@@ -23,7 +23,7 @@ def choice_flow(choice):
     elif choice == '4':
         run_world_4()
         return 4
-    else:
+    else: #errorhandling
         print("ERROR: Please enter either 1, 2, 3, or 4")
         main()
 
