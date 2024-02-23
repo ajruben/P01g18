@@ -1,7 +1,8 @@
 #----------------------------------------------------------------------------------------------------------------------------------------------------
-#main menu and controlling choice flow
+#main menu and controlling choice flow 
 def main(flag=[]):
-    choice = input("Hi user!\nPlease select a world! You can choose out of 1 2 3 4")
+    name = input("Welcome to our game! Can you please give your name?")
+    choice = input(f"Hi {name}!\nPlease select a world! You can choose out of 1 2 3 4")
     choice_flow(choice) #from here world handling is done, always ends at end_of_world()
 
 def choice_flow(choice):
@@ -41,15 +42,15 @@ def toggle_gravity():
 
 def show_gravity_activity():
     if gravity_active:
-        print("Gravity activated. Normal gravity in effect.")
+        print("Normal gravity in effect.")
     else:
-        print("Gravity deactivated. Zero gravity in effect.")
+        print("Zero gravity in effect.")
 
 #rooms world 1
-def w1_r1(): #world one room one
+def w1_r1(): #world one room one, #TODO: include time: can you set record? write and load from text file.
     welcome_text_room1 = """
     Welcome in the world of theoretical physics, where the physics is theoretical but the fun is real!
-    You are in a world where you can control gravity, initially there is no gravity. You start in a room with a bunch of stuff floating about.
+    You are in a world where you can control gravity with a gravity gadget, initially there is no gravity. You start in a room with a bunch of stuff floating about.
     There is a locked door, the key is floating on the other side of the room.
     Would you like to open the door with brute force, or try and get the key?
     option A: brute force
@@ -63,7 +64,7 @@ def w1_r1(): #world one room one
         elif keyforce_choice == "B":
             w1r1_get_key()
         else:
-            print("Error: please enter either 'A' or 'B'.")
+            print("Error: please enter either 'A' or 'B'. Restarting game.")
             keyforce_choice = None
 
 
@@ -80,13 +81,30 @@ def w1r1_get_key():
     while toggle_choice == None:
         toggle_choice = input(first_text_key)
         if toggle_choice == "A":
-            print("Everything falls to the ground. Including you (ouch). Luckily we can still walk, lets grab the key!")
+            toggle_gravity()
+            show_gravity_activity()
+            print("Everything falls to the ground. Including you (ouch). Luckily we can still walk, lets grab the key and unlock the door! hurray we escaped.")
         elif toggle_choice == "B":
-            print("Our gravity gadget inlcudes other features! We could also use the gravity ray to pull objects towards us (and us towards the object, considering Newtons third law).")
-            
-def w1r1_brute():
-    pass
+            show_gravity_activity()
+            print("Our gravity gadget inlcudes other features! We could also use the gravity ray to pull objects towards us (and us towards the object, considering Newtons third law). (story to be developed)")
 
+def w1r1_brute():
+    first_text_brute = """
+    Trying to get the key is going to be difficult, so I understand your choice.
+    We notice that there are several more objects floating about in this room, one of which is a bowling ball.
+    Hmm...
+    Lets use our gravity gadget!
+    Option A: turn gravity on
+    Option B: Change the direction of the gravity towards the door, activate the gravity in intense mode (a=100ms^2, i.e., everything accelerates ten times faster than on earth!)
+    """
+    brute_choice = None
+    while brute_choice == None:
+        brute_choice = input(first_text_brute)
+        if brute_choice == "A":
+            print("Maybe we could smash the bowling ball through the door... (story to be developed)")
+        elif brute_choice == "B":
+            print("WHAAAM, what a collision! The bowling ball blew a huge hole in the door. we can escape. hurray. the end.")
+    
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #world two
             
