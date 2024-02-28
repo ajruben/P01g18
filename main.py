@@ -357,25 +357,26 @@ def run_world_2(): #bram
 #world three
 
 def run_world_3(): #jade
-    print("Welcome to the molecular life sciences world!")
-    print("You need to collect letters everytime you are done with a question, at the end you need to make a correct word with these letters to finish this world.")
+   #introduction
+print("Welcome to the molecular life sciences world!")
+print("You need to collect letters every time you are done with a question. At the end, you need to make a correct word with these letters to finish this world.")
 
-    while True:
-        exited = input("Are you exited to learn about biology, chemistry and pharmacy? (y/n)")
-        if exited == "n":
-            print("Think again")
-        elif exited == "y":
-            print("Great! Let's get started. (The first letter is: e)")
-            break
-        else:
-            print("Invalid input. Please enter 'y' or 'n'.")
-            
-    #biology part
+while True:
+    exited = input("Are you excited to learn about biology, chemistry, and pharmacy? (y/n)")
+    if exited == "n":
+        print("Think again")
+    elif exited == "y":
+        print("Great! Let's get started. (The first letter is: e)")
+        break
+    else:
+        print("Invalid input. Please enter 'y' or 'n'.")
 
-    max_attempts = 3
-    wrong_guesses = 0
+#biology part
+max_attempts = 3
+wrong_guesses = 0
 
-    while wrong_guesses < max_attempts:
+while wrong_guesses < max_attempts:
+    try:
         question_1 = int(input("How many amino acids are there? "))
         if question_1 == 20:
             print("Good job! (The second letter is: l)")
@@ -388,47 +389,54 @@ def run_world_3(): #jade
             else:
                 print(f"Sorry, you've used all your attempts. The correct answer is 20. (The second letter is: l)")
                 break
-    while True:
-        question_2 = input("What is the process by which a diploid cell splits into four haploid cells? (a. Mitosis b. Meiosis c. Binary fission d. Budding) ")
-        if question_2 == "a" or question_2 == "c" or question_2 == "d":
-            print("Think again")
-        elif question_2 == "b":
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+while True:
+    question_2 = input("What is the process by which a diploid cell splits into four haploid cells? (a. Mitosis b. Meiosis c. Binary fission d. Budding) ")
+    if question_2 in ['a', 'b', 'c', 'd']:
+        if question_2 == "b":
             print("Great! Let's continue. (The third letter is: m)")
             break
         else:
-            print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
+            print("Think again")
+    else:
+        print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
 
-    #chemistry part        
-    question_3 = input("What is the charge of a proton? (+/-)")
+#chemistry part
+question_3 = input("What is the charge of a proton? (+/-)")
+if question_3 in ['+', '-']:
     if question_3 == "+":
         print("You are correct! (The fourth letter is: u)")
-    elif question_3 == "-":
-        print("No, a proton has a positive charge. (The fourth letter is: u)")
     else:
-        print("Invalid input. Please enter '+' or '-'.")
-        
-    while True:
-        question_4 = input("What type of bond is formed between two atoms that share electrons equally? (a. Ionic bond b. Covalent bond c. Metallic bond d. Hydrogen bond) ")
-        if question_4 == "a" or question_2 == "c" or question_2 == "d":
-            print("Think again")
-        elif question_4 == "b":
+        print("No, a proton has a positive charge. (The fourth letter is: u)")
+else:
+    print("Invalid input. Please enter '+' or '-'.")
+
+while True:
+    question_4 = input("What type of bond is formed between two atoms that share electrons equally? (a. Ionic bond b. Covalent bond c. Metallic bond d. Hydrogen bond) ")
+    if question_4 in ['a', 'b', 'c', 'd']:
+        if question_4 == "b":
             print("Great! Let's continue (The fifth letter is: o)")
             break
         else:
-            print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
+            print("Think again")
+    else:
+        print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
 
-    #pharmacy part
-    max_attempts = 3
-    wrong_guesses = 0
+#pharmacy part
+max_attempts = 3
+wrong_guesses = 0
 
-    while wrong_guesses < max_attempts:
+while wrong_guesses < max_attempts:
+    try:
         question_5 = int(input("What is the total volume of a 5% dextrose solution containing 250 grams of dextrose in 1000 milliliters (ml)? "))
         if question_5 == 1000:
             print("Good job! (The sixth letter is: c)")
             break
-        if question_5 > 1000:
+        elif question_5 > 1000:
             print("The answer is lower, guess again")
-        if question_5 < 1000:
+        else:
             print("The answer is higher, guess again")
         wrong_guesses += 1
         remaining_attempts = max_attempts - wrong_guesses
@@ -437,44 +445,50 @@ def run_world_3(): #jade
         else:
             print(f"Sorry, you've used all your attempts. The correct answer is 1000. (The sixth letter is: c)")
             break
-        
-    while True:
-        question_6 = input("Which dosage form is designed to release the drug gradually over an extended period, providing sustained therapeutic effect? (a. Capsule b. Tablet c. Transdermal patch d. Solution) ")
-        if question_6 == "a" or question_6 == "b" or question_6 == "d":
-            print("Think again")
-        elif question_6 == "c":
-            print("Great! Let's continue (The sevent letter is: e)")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
+
+while True:
+    question_6 = input("Which dosage form is designed to release the drug gradually over an extended period, providing sustained therapeutic effect? (a. Capsule b. Tablet c. Transdermal patch d. Solution) ")
+    if question_6 in ['a', 'b', 'c', 'd']:
+        if question_6 == "c":
+            print("Great! Let's continue (The seventh letter is: e)")
             break
         else:
-            print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
-
-    #story question        
-    while True:
-        question_7 = input("In the town of Evergreen, a group of researchers has discovered a new species of plant in the nearby forest. The plant, named Glowleaf, emits a faint bioluminescent glow at night. Excited by this discovery, the researchers want to investigate the biochemical mechanism responsible for the glow. After conducting experiments, they identify an enzyme called 'luciferase' that catalyzes the reaction producing light. What type of biomolecule is luciferase? (a. Carbohydrate b. Lipid c. Protein d. Nucleic acid) ")
-        if question_7 == "a" or question_7 == "b" or question_7 == "d":
             print("Think again")
-        elif question_7 == "c":
+    else:
+        print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
+
+#story question
+while True:
+    question_7 = input("In the town of Evergreen, a group of researchers has discovered a new species of plant in the nearby forest. The plant, named Glowleaf, emits a faint bioluminescent glow at night. Excited by this discovery, the researchers want to investigate the biochemical mechanism responsible for the glow. After conducting experiments, they identify an enzyme called 'luciferase' that catalyzes the reaction producing light. What type of biomolecule is luciferase? (a. Carbohydrate b. Lipid c. Protein d. Nucleic acid) ")
+    if question_7 in ['a', 'b', 'c', 'd']:
+        if question_7 == "c":
             print("Great! Let's continue (The last letter is: l)")
             break
         else:
-            print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
-            
-    #code word
-    max_attempts = 3
-    wrong_guesses = 0
+            print("Think again")
+    else:
+        print("Invalid input. Please enter 'a' or 'b' or 'c' or 'd'.")
 
-    while wrong_guesses < max_attempts:
-        code_word = input("To finish this world fill in the correct code word:")
-        if code_word == "molecule":
-            print("Congatualations! You successfully completed this world")
-            break
+#code word
+max_attempts = 3
+wrong_guesses = 0
+
+while wrong_guesses < max_attempts:
+    code_word = input("To finish this world, fill in the correct code word:")
+    if code_word.lower() == "molecule":
+        print("Congratulations! You successfully completed this world.")
+        break
+    else:
         wrong_guesses += 1
         remaining_attempts = max_attempts - wrong_guesses
         if remaining_attempts > 0:
             print(f"Sorry, that's incorrect. You have {remaining_attempts} attempts remaining.")
         else:
-            print(f"Sorry, you've used all your attempts. The correct answer is molecule. Thank you for participating")
+            print(f"Sorry, you've used all your attempts. The correct answer is 'molecule'. Thank you for participating.")
             break
+
     #finish
     #variables
     w=3
