@@ -1,12 +1,10 @@
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #main menu and controlling choice flow 
-#TODO req3: When the player has completed all worlds successfully, the main program congratulates them and ends the game. (use flags)
-#comment for git
 global_start_time = 0
 tracker = []
 
 import time
-def main(name, flag=[]): #req2
+def main(name): #req2
     
     choice = input(f"Hi {name}!\nPlease select a world! You can choose out of 1 2 3")
     #from here world handling is done, always ends at end_of_world()
