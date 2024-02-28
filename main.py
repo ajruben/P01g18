@@ -195,12 +195,168 @@ def key_choice_smash():
 #world two
             
 
-def run_world_2(): #bram dhalloSSS
+def run_world_2(): #bram 
     #variables
     w=2
     #body
-    choice = input("Welkom in wereld 2, wat wil je doen?")
+    #welcome the player
+    introduction = """"
+    Welcome to the world of economic decision making! While you’re here you will explore more about 
+    yourself and how you think.
+    
+    In this world there live both econs and humans. Today you are going to visit the city where all the econs live. 
+    A long time assumption in the world of economic decision making is that every person behaves rational.
+    But actually in real lif we see that most people behave biased. We call biased people ‘humans’ and rational people ‘econs’.
+    """
+    #set variable for explenation rationality
+    rationality = """
+    Economists assume that people will make choices in their own self-interest. They will choose those things that provide the greatest personal benefit,\
+     and they'll avoid things that aren't as personally valuable and compelling. That's what we mean by the assumption of rationality."""
+    
+    print(f'{introduction}')
+    
+    #Does the player know rationality? 
+    know_rationality = input("Do you know what the concept of rationality in economics is? (yes/no) ")
+    while(not(know_rationality == 'yes' or know_rationality == 'no')):
+        print('ERROR, please answer the question with yes or no')
+        know_rationality = input("Do you know what the concept of rationality in economics is? (yes/no) ")
+    if know_rationality == 'yes':
+        print("Great! let's start.")
+    elif know_rationality == 'no':
+        print(f'{rationality}')
+    #need to add a loop to go back to the question for both elif and else statement
+        
+    #What do you think you are?
+    print(" ")
+    own_choice = input("Now that you have read the introduction, do you consider yourself an 'econ' or a 'human' (econ/human) ")
+    while(not(own_choice == 'econ' or own_choice == 'human')):
+        print('ERROR, please answer the question with econ or human (without capital letters)')
+        own_choice = input("Now that you have read the introduction, do you consider yourself an 'econ' or a 'human' (econ/human) ")
+    if own_choice == 'econ' or 'human':
+        print("Alright, let's check that!")
+    
+    #set a formula for the suspicion level    
+    suspicion = 0
+    
+    #Introduction in the city and the first encounter
+    print(f"""You entered the city of where all of the so called econs live. To stay here you have to\
+     act rationally. Otherwise the econs in the city will grow suspicious of you. currently your\
+     level is {suspicion} There don't live a lot of people in the city of the econs. And immediately a woman comes up to you and says that she doesn't regognize you.
+    
+    The woman says: 'You are only allowed to visit the city if you are a real rational thinker.'\
+     And she asks you a question.""")
+    print(' ')
+    euros = int(input("She asks: If you have 100 euros and you had to divide it between you and someone else.\
+     How much would you give to the other person? (in whole euros) "))
+    while (not(euros >= 1 and euros <= 100)):
+        print('ERROR, please enter an integer between 1 and 100.')
+        euros = int(input("She asks: If you have 100 euros and you had to divide it between you and someone else.\
+     How much would you give to the other person? (in whole euros) "))
+    print('')
+    if euros == 1:
+        print("Woman: 'Correct! I did not regognize you but it seems like you belong here.'")
+        print(f"Your suspicion level is {suspicion}")  
+    elif euros > 1 and euros <= 100:
+        suspicion += 1
+        print("Woman: 'You know it is actually 1 right? Because you want to give the minimal amount\
+     you can give to the other person")
+        print(f"Your suspicion level is {suspicion}")
+    
+    #second encounter and second question
+    print()
+    print("""You walk away from the weird woman and go further explore the city. You get thirsty and you go to a corner shop to buy\
+    a bottle of water. The bottle costs €1.95, and you pay with a €2 coin. Before you walk away \
+    the cashier says: 'Do you not want your 5 cents back? No one ever walks away withour asking \
+    for their change in this city.' You nervously ask your 5 cents back but the cashier still \
+    wants to test if you really belong in the city. """)
+           
+    flip_coin_certainty = input("""He asks: 'If I would give you two choices:
+    A. Flip a coin. If it lands on heads, you win 100 euros, if it lands on tails, you win nothing.
+    B. You are certain to get 46 euros.
+    Which one would you choose? (A/B)' """)
+    while (not(flip_coin_certainty == 'A' or flip_coin_certainty == 'B')):
+        print('ERROR, please enter either A or B (in capital letters)')
+        flip_coin_certainty = input("""He asks: If I would give you two choices:
+    A. Flip a coin. If it lands on heads, you win 100 euros, if it lands on tails, you win nothing.
+    B. You are certain to get 46 euros.
+    Which one would you choose? (A/B) """)
+    if flip_coin_certainty == 'A':
+        print("That's the right choice, have a nice rest of your day!")
+        print(f"Your supsicion level is {suspicion}")
+        print("You thank the cashier and walk away.")
+    elif flip_coin_certainty == 'B':
+        print("That's is not correct, option A has a higher expected outcome. Do you really belong in this city?")
+        suspicion += 1
+        print(f"Your suspicion level is {suspicion}")
+        print("Because you are not yet done exploring the city, you thank the cashier for the water and walk away.")
+    
+    #third encounter and third question
+    print('')
+    print(""""While walking in the street to your next location, you get a newspaper from a man in the street. \
+    on the back there is a daily rationality test question. It reads:
+    Linda is 31 years old, single, outspoken, and very bright. She majored in philosophy.\
+     As a student she was deeply concerned with issues of discrimination and social justice \
+    and also participated in anti-nuclear demonstrations.
+    
+    Now which of two alternatives is more probable?
+    A. Linda is a bank teller
+    B. Linda is a bank teller who is active in the feminist movement
+    """)
+    linda_choice = input("Seeing that you read the question on the back of the newspaper, a passerby taps you on the shoulder and asks: \
+    'Which one would you choose?' (A/B) ")
+    while (not(linda_choice == 'A' or linda_choice == 'B')):
+        print('ERROR, please enter either A or B (in capital letters)')
+        linda_choice = input("Seeing that you read the question on the back of the newspaper a passerby taps you on the shoulder and says: \
+        'Which one would you choose?' (A/B) ")
+    if linda_choice == 'A':
+        print("Yes that's correct!")
+        print(f"Your supsicion level is {suspicion}")
+    else:
+        print("That's not correct, being solely a bankteller is always more probable.")
+        suspicion += 1
+        print(f"Your supsicion level is {suspicion}")
+    
+    #maybe make a function of this that you can run after every question
+    print('')
+    if suspicion >= 2:
+        print("Your suspicion level is too high and the econs realise that you do not belong in the \
+    city of econs. You have been kicked out.")
+    elif suspicion == 1:
+        print("You are for now allowed to stay in the city but the people in the city are becoming suspicious of you.")
+    else:
+        print("You blend in perfectly. You are allowed to stay in the city.")
+    
+    #set variable for if the trst classify the player as a human or econ
+    print('')
+    print("Thank you for visiting the city of econs.")
+    print('')
+    if suspicion >= 1:
+        test_choice = 'human'
+        print("From the tests presented to you in the city of econs we can conclude that you can be \
+    classified as a human.")
+    else:
+        test_choice = 'econ'
+        print("from the questions we can conclude that you can be classified as an econ.")
+        
+    #make function to say if the player was correct in the beginning
+    print('')
+    print("Let's compare your results to the answer you gave in the beginning.")
+    print('')
+    if test_choice == 'human' and own_choice == 'human':
+        print("You know yourself well! You were right from the start!")
+    elif test_choice == 'human' and own_choice =='econ':
+        print("Your guessed wrong at the start :( , but now you know!")
+    elif test_choice == 'econ' and own_choice =='human':
+        print("Your guessed wrong at the start :( , but now you know!")
+    elif test_choice == 'econ' and own_choice =='econ':
+        print("You know yourself well! You were right from the start!")
+      
+    #thank player for playing and return to the main menu
+    print('')
+    print("Thank you for playing the world of economic decision making. I hope you enjoyed visiting the city of econs.")
+    #put in function that makes player go back to the choice of the worlds
     #finish
+
 
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
