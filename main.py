@@ -369,17 +369,6 @@ def run_world_3(): #jade
     choice = input("Welkom in wereld 3, wat wil je doen?")
     #finish
 
-
-#----------------------------------------------------------------------------------------------------------------------------------------------------
-#world four
-    
-def run_world_4(): #michelle
-    #variables
-    w=4
-    #body
-    choice = input("Welkom in wereld 4, wat wil je doen?")
-    #finish
-
 #---------------------------------------------------------------------------------------------------------------------------------------------------
 def start_timer():
     global global_start_time
