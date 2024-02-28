@@ -34,16 +34,9 @@ def choice_flow(choice):
         main()
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
-#world one, req 5: d can be completed by the player, if necessary by starting the world again and trying another route. There is no ultimate “game over” state.
-            
+#world one
 def run_world_1(): #ruben
-    #variables
-    #body
     w1_r1() #first room
-
-    
-    #finish
-    
 
 #global variable for world1
 gravity_active = False
@@ -195,12 +188,11 @@ def key_choice_smash():
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------
 #world two
-            
 
 def run_world_2(): #bram 
     #variables
     w=2
-    #body
+ 
     #welcome the player
     introduction = """"
     Welcome to the world of economic decision making! While you’re here you will explore more about 
@@ -491,6 +483,7 @@ def run_world_3(): #jade
 
 
 #---------------------------------------------------------------------------------------------------------------------------------------------------
+#general helper functions
 def start_timer():
     global global_start_time
     print("Starting Timer...")
@@ -536,6 +529,8 @@ def end_of_world(choice):
         print("Error: Please enter yes or no. not capitalized.")
         end_of_world(choice)
 
+
+#running code
 if __name__ == "__main__":
     name = input("Welcome to our game! Can you please give your name?") #req 1
     main(name)
