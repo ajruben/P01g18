@@ -3,15 +3,22 @@
 #TODO req3: When the player has completed all worlds successfully, the main program congratulates them and ends the game. (use flags)
 #comment for git
 global_start_time = 0
+tracker = []
 
 import time
 def main(name, flag=[]): #req2
     
-    
     choice = input(f"Hi {name}!\nPlease select a world! You can choose out of 1 2 3")
     #from here world handling is done, always ends at end_of_world()
     w = choice_flow(choice) 
+    tracker.append(w)
+   
+    if len(set(tracker)) == 3:
+        print("You finished all words, thanks for playing!")
+        return None
     end_of_world(w)
+    
+
 
 def choice_flow(choice):
     #ifelse statements
